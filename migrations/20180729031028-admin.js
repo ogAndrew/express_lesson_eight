@@ -3,14 +3,13 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return [
-      queryInterface.addColumn('users', 'AuthId', Sequelize.INTEGER, {
+      queryInterface.addColumn('users', 'Admin', Sequelize.BOOLEAN, {
         allowNull: true
       })
     ];
   },
 
   down: (queryInterface, Sequelize) => {
-    return [queryInterface.removeColumn('users', 'AuthId')];
+    return [queryInterface.removeColumn('users', 'Admin')];
   }
 };
-

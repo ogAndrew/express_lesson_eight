@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         unique: true
       },
+      Admin: DataTypes.BOOLEAN,
       Password: DataTypes.STRING,
       AuthId: DataTypes.INTEGER,
       createdAt: DataTypes.DATE,

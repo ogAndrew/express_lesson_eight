@@ -103,22 +103,26 @@ router.get(
 
 
 
-
-
-
 router.get('/profile/:id', auth.verifyUser, function (req, res, next) {
   if (req.params.id !== String(req.user.UserId)) {
     res.send('This is not your profile')
   } else {
+    let status;
+   if (req.user.Admin) {
+     status = 'Admin';
+   } else {
+     status = 'Normal user';
+   }
     res.render('profile', {
       FirstName: req.user.FirstName,
       LastName: req.user.LastName,
       Email: req.user.Email,
       UserId: req.user.UserId,
-      Username: req.user.Username
+      Username: req.user.Username,
+      Status:status
     });
   }
-
+  
 });
 
 router.get('/logout', function (req, res) {
